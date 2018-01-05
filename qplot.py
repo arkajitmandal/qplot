@@ -22,4 +22,10 @@ def echo(msg, color = 0, colorset = colors) :
 def getSize():
     """
     get terminal size
+    return [height, width]
     """
+    import os
+    dat = os.popen("stty size").read()
+    return [int(i) for i in dat.split()]
+
+print getSize()
